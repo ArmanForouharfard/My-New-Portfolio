@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills — Arman Forouharfard</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .skills-layout { margin-top: 3rem; }
+    .skill-category { margin-bottom: 3.5rem; }
+    .skill-category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-category-icon {
+      font-size: 1.2rem;
+      width: 40px; height: 40px;
+      background: var(--orange-glow);
+      border: 1px solid rgba(240,122,42,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .skill-category-title { font-size: 1rem; font-weight: 600; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .skill-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+      cursor: default;
+    }
+    .skill-chip:hover {
+      border-color: rgba(240,122,42,0.3);
+      color: var(--text);
+      background: rgba(240,122,42,0.05);
+    }
+    .skill-chip.primary { border-color: rgba(240,122,42,0.25); color: var(--orange); background: var(--orange-glow); }
+    .skill-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.6; }
+
+    /* ─── PROFICIENCY BAR ─────────── */
+    .proficiency-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+    .proficiency-grid { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+    .prof-item { display: flex; align-items: center; gap: 1.25rem; }
+    .prof-name { width: 160px; font-size: 0.87rem; color: var(--text-muted); flex-shrink: 0; font-family: var(--code); }
+    .prof-bar-track {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: visible;
+      position: relative;
+    }
+    .prof-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange-dim), var(--orange));
+      border-radius: 2px;
+      width: 0;
+      transition: width 1s cubic-bezier(0.4,0,0.2,1);
+    }
+    .prof-pct {
+      width: 36px;
+      text-align: right;
+      font-family: var(--code);
+      font-size: 0.75rem;
+      color: var(--orange);
+    }
+
+    /* ─── CURRENTLY LEARNING ──────── */
+    .learning-section { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+    .learning-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .learning-card {
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .learning-card-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
+    .learning-card h4 { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .learning-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
+    .learning-badge {
+      display: inline-block;
+      font-family: var(--code);
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--orange-glow);
+      border: 1px solid rgba(240,122,42,0.3);
+      color: var(--orange);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── TOOLS ───────────────────── */
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+
+<nav class="nav">
+  <a class="nav-logo" href="../index.html"><span>~/</span>arman.dev</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-burger"><span></span><span></span><span></span></div>
+</nav>
+<nav class="nav-mobile">
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="breadcrumb"><a href="../index.html">Home</a> <span>/</span> Skills</div>
+  <div class="section-label">Tech Stack · Tools · Currently Learning</div>
+  <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.5rem);">What I work <em>with.</em></h1>
+  <p class="section-desc">A honest map of languages, frameworks, and tools I use — rated by real-world comfort, not wishful thinking.</p>
+</div>
+
+<section class="section">
+  <div class="skills-layout">
+
+    <!-- FRONTEND -->
+    <div class="skill-category fade-up">
+      <div class="skill-category-header">
+        <div class="skill-category-icon">🎨</div>
+        <div class="skill-category-title">Frontend Development</div>
+      </div>
+      <div class="skill-chips">
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>HTML5</div>
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>CSS3</div>
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>JavaScript</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>React (learning)</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Bootstrap</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>jQuery</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Ajax</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Sass / Less</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Responsive Design</div>
+      </div>
+    </div>
+
+    <!-- BACKEND -->
+    <div class="skill-category fade-up">
+      <div class="skill-category-header">
+        <div class="skill-category-icon">⚙️</div>
+        <div class="skill-category-title">Backend Development</div>
+      </div>
+      <div class="skill-chips">
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>PHP</div>
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>MySQL</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>SQL</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Python</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>WordPress</div>
+      </div>
+    </div>
+
+    <!-- PROGRAMMING LANGUAGES -->
+    <div class="skill-category fade-up">
+      <div class="skill-category-header">
+        <div class="skill-category-icon">💻</div>
+        <div class="skill-category-title">Programming Languages</div>
+      </div>
+      <div class="skill-chips">
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>JavaScript</div>
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>Python</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>C#</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>PHP</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Pawn</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Java</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>C</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>C++</div>
+      </div>
+    </div>
+
+    <!-- GAME DEV -->
+    <div class="skill-category fade-up">
+      <div class="skill-category-header">
+        <div class="skill-category-icon">🎮</div>
+        <div class="skill-category-title">Game Development</div>
+      </div>
+      <div class="skill-chips">
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>Unity</div>
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>C# (Unity)</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Pawn / SA-MP</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>3D Scene Design</div>
+      </div>
+    </div>
+
+    <!-- TOOLS & DESIGN -->
+    <div class="skill-category fade-up">
+      <div class="skill-category-header">
+        <div class="skill-category-icon">🛠️</div>
+        <div class="skill-category-title">Tools & Design</div>
+      </div>
+      <div class="skill-chips">
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>Git & GitHub</div>
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>Figma</div>
+        <div class="skill-chip primary"><div class="skill-chip-dot"></div>Visual Studio</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Photoshop</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>Arduino</div>
+        <div class="skill-chip"><div class="skill-chip-dot"></div>WAMP</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROFICIENCY BARS -->
+  <div class="proficiency-section fade-up">
+    <div class="section-label">Proficiency</div>
+    <h2 class="section-title" style="font-size:1.6rem;">Honest <em>self-assessment</em></h2>
+    <div class="proficiency-grid">
+      <div class="prof-item">
+        <div class="prof-name">HTML & CSS</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="92"></div></div>
+        <div class="prof-pct">92%</div>
+      </div>
+      <div class="prof-item">
+        <div class="prof-name">JavaScript</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="80"></div></div>
+        <div class="prof-pct">80%</div>
+      </div>
+      <div class="prof-item">
+        <div class="prof-name">PHP</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="70"></div></div>
+        <div class="prof-pct">70%</div>
+      </div>
+      <div class="prof-item">
+        <div class="prof-name">MySQL</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="68"></div></div>
+        <div class="prof-pct">68%</div>
+      </div>
+      <div class="prof-item">
+        <div class="prof-name">Python</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="60"></div></div>
+        <div class="prof-pct">60%</div>
+      </div>
+      <div class="prof-item">
+        <div class="prof-name">C# / Unity</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="58"></div></div>
+        <div class="prof-pct">58%</div>
+      </div>
+      <div class="prof-item">
+        <div class="prof-name">React</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="38"></div></div>
+        <div class="prof-pct">38%</div>
+      </div>
+      <div class="prof-item">
+        <div class="prof-name">Figma</div>
+        <div class="prof-bar-track"><div class="prof-bar-fill" data-width="72"></div></div>
+        <div class="prof-pct">72%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURRENTLY LEARNING -->
+  <div class="learning-section fade-up">
+    <div class="section-label">Active Growth</div>
+    <h2 class="section-title" style="font-size:1.6rem;">Currently <em>learning</em></h2>
+    <div class="learning-cards">
+      <div class="learning-card">
+        <div class="learning-card-icon">⚛️</div>
+        <div>
+          <div class="learning-badge">IN PROGRESS</div>
+          <h4>React</h4>
+          <p>Building ReelNoir and the Telegram UI replica to solidify component thinking and state management.</p>
+        </div>
+      </div>
+      <div class="learning-card">
+        <div class="learning-card-icon">🤖</div>
+        <div>
+          <div class="learning-badge">IN PROGRESS</div>
+          <h4>Machine Learning</h4>
+          <p>Python ML fundamentals at AIO Learn Academy. Toward an eventual robotics engineering path.</p>
+        </div>
+      </div>
+      <div class="learning-card">
+        <div class="learning-card-icon">🔧</div>
+        <div>
+          <div class="learning-badge">EXPLORING</div>
+          <h4>Arduino / Hardware</h4>
+          <p>Physical computing with Arduino + Python. The hardware bridge between software and robotics.</p>
+        </div>
+      </div>
+      <div class="learning-card">
+        <div class="learning-card-icon">🎯</div>
+        <div>
+          <div class="learning-badge">NEXT UP</div>
+          <h4>TypeScript</h4>
+          <p>Planned after React fundamentals solidify. Essential for production-grade frontend work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-logo">arman.dev</div>
+  <div class="footer-copy">© 2026 Arman Forouharfard</div>
+  <div class="footer-social">
+    <a href="https://github.com/ArmanForouharfard" target="_blank">GH</a>
+    <a href="https://linkedin.com/in/arman-forouharfard-a3a360271" target="_blank">in</a>
+    <a href="mailto:arman.forouharfard@gmail.com">✉</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Animate proficiency bars on scroll
+  const bars = document.querySelectorAll('.prof-bar-fill');
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const w = e.target.dataset.width;
+        e.target.style.width = w + '%';
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  bars.forEach(b => barObs.observe(b));
+</script>
+</body>
+</html>

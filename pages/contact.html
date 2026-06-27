@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Arman Forouharfard</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .contact-left { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: var(--transition);
+      text-decoration: none;
+      color: var(--text);
+    }
+    .contact-card:hover { border-color: rgba(240,122,42,0.35); transform: translateX(4px); }
+    .contact-card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--orange-glow);
+      border: 1px solid rgba(240,122,42,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-card-text { flex: 1; }
+    .contact-card-label { font-family: var(--code); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+    .contact-card-value { font-size: 0.92rem; font-weight: 500; }
+    .contact-card-arrow { color: var(--text-dim); font-size: 1rem; transition: var(--transition); }
+    .contact-card:hover .contact-card-arrow { color: var(--orange); transform: translateX(4px); }
+
+    .contact-note {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--orange-glow);
+      border: 1px solid rgba(240,122,42,0.2);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .contact-note strong { color: var(--orange); font-weight: 500; }
+
+    /* ─── FORM ───────────────────── */
+    .contact-form-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .contact-form-box h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .contact-form-box p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group label { font-size: 0.78rem; color: var(--text-muted); font-family: var(--code); letter-spacing: 0.06em; margin-bottom: 0.4rem; display: block; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.7rem 1rem;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color var(--transition);
+      resize: none;
+    }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%237a7a85' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 12px; }
+    .form-group select option { background: var(--bg-2); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--orange); }
+    .form-group textarea { min-height: 140px; }
+    .form-submit { width: 100%; margin-top: 0.5rem; justify-content: center; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .form-success .success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .form-success h4 { color: var(--text); margin-bottom: 0.5rem; }
+
+    @media (max-width: 860px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+
+<nav class="nav">
+  <a class="nav-logo" href="../index.html"><span>~/</span>arman.dev</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-burger"><span></span><span></span><span></span></div>
+</nav>
+<nav class="nav-mobile">
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="breadcrumb"><a href="../index.html">Home</a> <span>/</span> Contact</div>
+  <div class="section-label">Let's Talk</div>
+  <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.5rem);">Reach out.<br/>I don't <em>bite.</em></h1>
+  <p class="section-desc">Open to frontend roles, freelance work, collaboration, and mentorship. Based in Tehran — available remotely worldwide.</p>
+</div>
+
+<section class="section">
+  <div class="contact-layout">
+
+    <!-- LEFT: CONTACT METHODS -->
+    <div class="contact-left fade-up">
+      <a href="mailto:arman.forouharfard@gmail.com" class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <div class="contact-card-text">
+          <div class="contact-card-label">EMAIL</div>
+          <div class="contact-card-value">arman.forouharfard@gmail.com</div>
+        </div>
+        <div class="contact-card-arrow">→</div>
+      </a>
+      <a href="https://linkedin.com/in/arman-forouharfard-a3a360271" target="_blank" class="contact-card">
+        <div class="contact-card-icon">💼</div>
+        <div class="contact-card-text">
+          <div class="contact-card-label">LINKEDIN</div>
+          <div class="contact-card-value">arman-forouharfard</div>
+        </div>
+        <div class="contact-card-arrow">→</div>
+      </a>
+      <a href="https://github.com/ArmanForouharfard" target="_blank" class="contact-card">
+        <div class="contact-card-icon">🐙</div>
+        <div class="contact-card-text">
+          <div class="contact-card-label">GITHUB</div>
+          <div class="contact-card-value">ArmanForouharfard</div>
+        </div>
+        <div class="contact-card-arrow">→</div>
+      </a>
+      <div class="contact-card" style="cursor:default;">
+        <div class="contact-card-icon">📞</div>
+        <div class="contact-card-text">
+          <div class="contact-card-label">PHONE</div>
+          <div class="contact-card-value">+98 910 061 0094</div>
+        </div>
+      </div>
+      <div class="contact-card" style="cursor:default;">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-text">
+          <div class="contact-card-label">LOCATION</div>
+          <div class="contact-card-value">Tehran, Iran — Remote Friendly</div>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        <strong>Response time:</strong> I typically reply within 24 hours. Best reached by email for professional inquiries, or LinkedIn for networking.
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="contact-form-box fade-up">
+      <h3>Send a message</h3>
+      <p>Whether it's a job opportunity, collaboration idea, or just a hello — I read everything.</p>
+      <form id="contactForm">
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select>
+              <option value="">Select a topic</option>
+              <option>Job opportunity</option>
+              <option>Freelance project</option>
+              <option>Collaboration</option>
+              <option>Mentorship</option>
+              <option>Just saying hi</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell me what's on your mind..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Message ↗</button>
+        </div>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h4>Message sent!</h4>
+        <p>Thanks for reaching out. I'll be in touch soon.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">arman.dev</div>
+  <div class="footer-copy">© 2026 Arman Forouharfard</div>
+  <div class="footer-social">
+    <a href="https://github.com/ArmanForouharfard" target="_blank">GH</a>
+    <a href="https://linkedin.com/in/arman-forouharfard-a3a360271" target="_blank">in</a>
+    <a href="mailto:arman.forouharfard@gmail.com">✉</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+</body>
+</html>

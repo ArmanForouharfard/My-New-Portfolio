@@ -1,0 +1,387 @@
+<!--🤖👤-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arman Forouharfard — Software Engineer</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ─── HOME-SPECIFIC ────────────── */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(240,122,42,0.08);
+      border: 1px solid rgba(240,122,42,0.2);
+      border-radius: 999px;
+      font-family: var(--code);
+      font-size: 0.72rem;
+      color: var(--orange);
+      letter-spacing: 0.06em;
+      margin-bottom: 2rem;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+    .hero-type-line {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-family: var(--code);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cursor-blink {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--orange);
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ─── FEATURED PROJECTS (HOME) ── */
+    .featured-section { background: var(--bg-1); }
+    .featured-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .featured-projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .featured-card-main {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2.5rem;
+      align-items: center;
+    }
+    .featured-img-mock {
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--text-dim);
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-img-mock img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      opacity: 0.92;
+      transition: opacity 0.3s ease;
+    }
+    .featured-img-mock img:hover {
+      opacity: 1;
+    }
+    .featured-img-mock::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--orange-glow), transparent);
+    }
+    .featured-card-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .featured-label {
+      font-family: var(--code);
+      font-size: 0.7rem;
+      color: var(--orange);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .featured-card-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    @media (max-width: 700px) {
+      .featured-projects { grid-template-columns: 1fr; }
+      .featured-card-main { grid-column: 1; grid-template-columns: 1fr; }
+    }
+
+    /* ─── ABOUT STRIP ─────────────── */
+    .about-strip {
+      background: var(--bg-2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+    }
+    .about-strip-visual {
+      position: relative;
+    }
+    .avatar-frame {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid rgba(240,122,42,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      position: relative;
+      margin: 0 auto;
+      margin-bottom: 2rem;
+    }
+
+    .avatar-frame::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px solid rgba(240,122,42,0.1);
+      animation: rotate 12s linear infinite;
+    }
+    .avatar-ring-label {
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.5rem 0.9rem;
+      font-family: var(--code);
+      font-size: clamp(0.6rem, 1.5vw, 0.72rem);
+      color: var(--orange);
+      white-space: nowrap;
+      z-index: 3;
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+    .about-strip-text h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .about-strip-text p { color: var(--text-muted); line-height: 1.75; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    @media (max-width: 800px) {
+      .about-strip { grid-template-columns: 1fr; }
+      .avatar-frame { width: 200px; height: 200px; font-size: 3.5rem; }
+    }
+
+    /* ─── CTA BANNER ──────────────── */
+    .cta-banner {
+      text-align: center;
+      padding: 5rem clamp(1.5rem, 6vw, 6rem);
+      background: var(--bg-1);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(240,122,42,0.08), transparent);
+    }
+    .cta-banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; position: relative; }
+    .cta-banner p { color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; position: relative; }
+    .cta-banner .btn { position: relative; }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html"><span>~/</span>arman.dev</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pages/about.html">About</a></li>
+    <li><a href="pages/projects.html">Projects</a></li>
+    <li><a href="pages/skills.html">Skills</a></li>
+    <li><a href="pages/contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<nav class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="pages/about.html">About</a>
+  <a href="pages/projects.html">Projects</a>
+  <a href="pages/skills.html">Skills</a>
+  <a href="pages/contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Available for opportunities
+    </div>
+    <div class="hero-eyebrow">Software Engineer · Tehran, Iran</div>
+    <h1 class="hero-name">
+      <span class="first">Arman</span>
+      <span class="last">Forouharfard</span>
+    </h1>
+    <div class="hero-type-line">
+      &gt; I build <span data-type='["web experiences","scalable apps","cinematic UIs","JARVIS-level AI","the future"]'></span><span class="cursor-blink"></span>
+    </div>
+    <p class="hero-desc">
+      Software Engineering student & game programming intern at <strong>Arsacia</strong>.
+      Crafting modern web experiences with clean code, bold design, and a long-horizon vision toward <strong>robotics & graduate study</strong>.
+    </p>
+    <div class="hero-actions">
+      <a href="pages/projects.html" class="btn btn-primary">View Projects</a>
+      <a href="pages/about.html" class="btn btn-ghost">About Me</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    SCROLL
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" style="padding-top:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);">
+  <div class="stats-bar">
+    <div class="stat fade-up"><div class="stat-number">7+</div><div class="stat-label">Years in IT domain</div></div>
+    <div class="stat fade-up"><div class="stat-number">6</div><div class="stat-label">GitHub projects</div></div>
+    <div class="stat fade-up"><div class="stat-number">12+</div><div class="stat-label">Technologies</div></div>
+    <div class="stat fade-up"><div class="stat-number">82%</div><div class="stat-label">Academic GPA</div></div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="section featured-section">
+  <div class="featured-header">
+    <div>
+      <div class="section-label">Selected Work</div>
+      <h2 class="section-title">Projects I'm <em>proud of</em></h2>
+    </div>
+    <a href="pages/projects.html" class="btn btn-ghost" style="font-size:0.82rem;">See all →</a>
+  </div>
+  <div class="featured-projects">
+    <!-- JARVIS — hero card -->
+    <div class="card featured-card-main fade-up">
+      <div>
+        <div class="featured-label">⭐ Featured</div>
+        <h3 class="featured-card-title">JARVIS — AI Voice Assistant</h3>
+        <p class="featured-card-desc">
+          A browser-based AI companion inspired by Iron Man's JARVIS. Ported from Python to JavaScript, 
+          featuring real-time voice interaction, an animated HUD interface, and natural language understanding. 
+          A showcase of bridging AI logic with cinematic frontend design.
+        </p>
+        <div class="project-tech" style="margin-bottom:1.5rem;">
+          <span class="tag active">JavaScript</span>
+          <span class="tag active">Web Speech API</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">Python</span>
+        </div>
+        <div style="display:flex;gap:0.75rem;">
+          <a href="https://armanforouharfard.github.io/JARVIS-JS/index.html" target="_blank" class="btn btn-primary" style="font-size:0.82rem;padding:0.6rem 1.25rem;">Live Demo</a>
+          <a href="https://github.com/ArmanForouharfard" target="_blank" class="btn btn-ghost" style="font-size:0.82rem;padding:0.6rem 1.25rem;">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="featured-img-mock">
+        <img src="images/Thumbnail Images of websites/Personal-Assistant-AI.jpg" alt="JarvisJS">
+      </div>
+    </div>
+    <!-- ReelNoir -->
+    <div class="card project-card fade-up">
+      <div class="project-header">
+        <div class="project-icon">🎬</div>
+        <div class="project-links">
+          <a href="https://github.com/ArmanForouharfard" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <h3>ReelNoir</h3>
+      <p>Cinematic noir-themed React movie search app. Fully offline with 60+ hardcoded films including Iranian cinema. Built while learning React — an exercise in state management and aesthetic design.</p>
+      <div class="project-tech">
+        <span class="tag active">React</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+    <!-- Forouhar Industries -->
+    <div class="card project-card fade-up">
+      <div class="project-header">
+        <div class="project-icon">🏭</div>
+        <div class="project-links">
+          <a href="https://armanforouharfard.github.io/Forouhar-Industries-website/index.html" target="_blank" class="project-link" title="Live">↗</a>
+        </div>
+      </div>
+      <h3>Forouhar Industries</h3>
+      <p>Full company website concept built since age 14. HTML, CSS & JavaScript — the project that started it all. Demonstrates long-term commitment to front-end development.</p>
+      <div class="project-tech">
+        <span class="tag active">HTML5</span>
+        <span class="tag active">CSS3</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section class="section about-strip">
+  <div class="about-strip-visual fade-up">
+    <div class="avatar-frame">
+      <img src="images/Owner/A.forouhar.jpg" alt="Arman Forouharfard" class="avatar-img" />
+      <div class="avatar-ring-label">🎓 BSc Software Engineering</div>
+    </div>
+  </div>
+  <div class="about-strip-text fade-up">
+    <div class="section-label">Who I Am</div>
+    <h2>Engineer by degree.<br/><em style="color:var(--orange);font-style:normal;">Builder</em> by nature.</h2>
+    <p>
+      I'm Arman — a software engineering student and game programming intern based in Tehran. 
+      I've been building things on the web since I was 14, and I haven't stopped since.
+    </p>
+    <p>
+      My long-horizon goal is to transition into robotics engineering and pursue graduate study 
+      at CMU, MIT, Stanford, or Georgia Tech — then found my own technology company.
+    </p>
+    <a href="pages/about.html" class="btn btn-ghost" style="align-self:flex-start;display:inline-flex;">Full story →</a>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2 class="fade-up">Let's build something <em style="color:var(--orange);">together.</em></h2>
+  <p class="fade-up">Open to frontend roles, freelance projects, and collaboration. Based in Tehran — available remotely.</p>
+  <a href="pages/contact.html" class="btn btn-primary fade-up">Get in touch</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">arman.dev</div>
+  <div class="footer-copy">© 2026 Arman Forouharfard</div>
+  <div class="footer-social">
+    <a href="https://github.com/ArmanForouharfard" target="_blank" title="GitHub">GH</a>
+    <a href="https://linkedin.com/in/arman-forouharfard-a3a360271" target="_blank" title="LinkedIn">in</a>
+    <a href="mailto:arman.forouharfard@gmail.com" title="Email">✉</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

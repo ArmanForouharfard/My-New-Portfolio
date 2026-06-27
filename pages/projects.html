@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Arman Forouharfard</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .filter-btn {
+      font-family: var(--code);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.04em;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--orange-glow);
+      border-color: rgba(240,122,42,0.4);
+      color: var(--orange);
+    }
+    .all-projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .project-card[data-hidden="true"] { display: none; }
+    .project-number {
+      font-family: var(--code);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--code);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .status-dot.live { background: #4ade80; box-shadow: 0 0 8px rgba(74,222,128,0.5); }
+    .status-dot.wip { background: var(--orange); box-shadow: 0 0 8px rgba(240,122,42,0.5); }
+    .status-dot.concept { background: var(--text-dim); }
+    .ideas-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .ideas-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(240,122,42,0.06), transparent);
+    }
+    .ideas-banner h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; position: relative; }
+    .ideas-banner p { color: var(--text-muted); font-size: 0.9rem; max-width: 480px; margin: 0 auto 1.5rem; line-height: 1.7; position: relative; }
+    .ideas-banner .btn { position: relative; }
+  </style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+
+<nav class="nav">
+  <a class="nav-logo" href="../index.html"><span>~/</span>arman.dev</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-burger"><span></span><span></span><span></span></div>
+</nav>
+<nav class="nav-mobile">
+  <a href="../index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="breadcrumb"><a href="../index.html">Home</a> <span>/</span> Projects</div>
+  <div class="section-label">GitHub · Live Demos · In-Progress</div>
+  <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.5rem);">Things I've <em>built.</em></h1>
+  <p class="section-desc">From voice AI to cinematic React apps — a record of what I've made, shipped, and learned.</p>
+</div>
+
+<section class="section">
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="frontend">Frontend</button>
+    <button class="filter-btn" data-filter="react">React</button>
+    <button class="filter-btn" data-filter="ai">AI / Systems</button>
+    <button class="filter-btn" data-filter="game">Game Dev</button>
+    <button class="filter-btn" data-filter="concept">Concepts</button>
+  </div>
+
+  <div class="all-projects">
+
+    <!-- JARVIS -->
+    <div class="card project-card fade-up" data-tags="frontend,ai">
+      <div class="project-number">01</div>
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="https://armanforouharfard.github.io/JARVIS-JS/index.html" target="_blank" class="project-link" title="Live Demo">▶</a>
+          <a href="https://github.com/ArmanForouharfard/JARVIS-JS" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot live"></div> Live</div>
+      <h3>JARVIS — JS Voice AI</h3>
+      <p>Browser-based AI voice assistant ported from Python. Real-time Web Speech API integration, animated HUD, natural language commands. The project that defines my AI ambitions in web form.</p>
+      <div class="project-tech">
+        <span class="tag active">JavaScript</span>
+        <span class="tag active">Web Speech API</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+
+    <!-- ReelNoir -->
+    <div class="card project-card fade-up" data-tags="react,frontend">
+      <div class="project-number">02</div>
+      <div class="project-header">
+        <div class="project-icon">🎬</div>
+        <div class="project-links">
+          <a href="https://github.com/ArmanForouharfard" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot wip"></div> In Progress</div>
+      <h3>ReelNoir</h3>
+      <p>Cinematic noir-themed React movie search app. 60+ hardcoded films including Iranian cinema. Built fully offline after regional API restrictions — a creative constraint turned into a design challenge.</p>
+      <div class="project-tech">
+        <span class="tag active">React</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+
+    <!-- Forouhar Industries -->
+    <div class="card project-card fade-up" data-tags="frontend">
+      <div class="project-number">03</div>
+      <div class="project-header">
+        <div class="project-icon">🏭</div>
+        <div class="project-links">
+          <a href="https://armanforouharfard.github.io/Forouhar-Industries-website/index.html" target="_blank" class="project-link" title="Live">▶</a>
+          <a href="https://github.com/ArmanForouharfard/Forouhar-Industries-website" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot live"></div> Live</div>
+      <h3>Forouhar Industries</h3>
+      <p>Full company website built starting at age 14. The origin project — demonstrates long-term dedication and a early instinct for professional web design. Continuously iterated over the years.</p>
+      <div class="project-tech">
+        <span class="tag active">HTML5</span>
+        <span class="tag active">CSS3</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+
+    <!-- Telegram UI Clone -->
+    <div class="card project-card fade-up" data-tags="react,frontend">
+      <div class="project-number">04</div>
+      <div class="project-header">
+        <div class="project-icon">💬</div>
+        <div class="project-links">
+          <a href="https://github.com/ArmanForouharfard" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot wip"></div> In Progress</div>
+      <h3>Telegram UI Replica</h3>
+      <p>A pixel-faithful coded replica of the Telegram interface, built in React from a Figma wireframe. Pixel-perfect responsive layout, message threads, sidebar navigation. Pure frontend craft.</p>
+      <div class="project-tech">
+        <span class="tag active">React</span>
+        <span class="tag">Figma</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+
+    <!-- SA-MP House System -->
+    <div class="card project-card fade-up" data-tags="game">
+      <div class="project-number">05</div>
+      <div class="project-header">
+        <div class="project-icon">🏠</div>
+        <div class="project-links">
+          <a href="https://github.com/ArmanForouharfard" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot live"></div> Delivered</div>
+      <h3>SA-MP House System</h3>
+      <p>Full-featured house ownership system for SA-MP game servers built in Pawn. MySQL-backed persistence, dialog-based UI, interior management, and ownership mechanics. Built under a 14-day deadline at Arsacia.</p>
+      <div class="project-tech">
+        <span class="tag active">Pawn</span>
+        <span class="tag active">MySQL</span>
+        <span class="tag">SA-MP</span>
+      </div>
+    </div>
+
+    <!-- Assassin's Creed Prototype -->
+    <div class="card project-card fade-up" data-tags="game">
+      <div class="project-number">06</div>
+      <div class="project-header">
+        <div class="project-icon">🗡️</div>
+        <div class="project-links">
+          <a href="https://github.com/ArmanForouharfard" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot wip"></div> Prototype</div>
+      <h3>Assassin's Creed Unity Prototype</h3>
+      <p>A Unity/C# fan prototype inspired by Assassin's Creed Unity. Exploring parkour movement systems, environmental interaction, and third-person camera mechanics in a historical city environment.</p>
+      <div class="project-tech">
+        <span class="tag active">Unity</span>
+        <span class="tag active">C#</span>
+        <span class="tag">3D</span>
+      </div>
+    </div>
+
+    <!-- Linktree -->
+    <div class="card project-card fade-up" data-tags="frontend">
+      <div class="project-number">07</div>
+      <div class="project-header">
+        <div class="project-icon">🔗</div>
+        <div class="project-links">
+          <a href="https://armanforouharfard.github.io/My-Linktree/index.html" target="_blank" class="project-link" title="Live">▶</a>
+          <a href="https://github.com/ArmanForouharfard/My-Linktree" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot live"></div> Live</div>
+      <h3>Personal Linktree Page</h3>
+      <p>Custom linktree-style page. Built entirely in HTML & CSS without JavaScript — a constraint-based design challenge that prioritizes performance and pure CSS creativity.</p>
+      <div class="project-tech">
+        <span class="tag active">HTML5</span>
+        <span class="tag active">CSS3</span>
+      </div>
+    </div>
+
+    <!-- Technology Ideas Archive -->
+    <div class="card project-card fade-up" data-tags="ai,concept">
+      <div class="project-number">08</div>
+      <div class="project-header">
+        <div class="project-icon">💡</div>
+        <div class="project-links">
+          <a href="https://github.com/ArmanForouharfard/My-Technology-Ideas" target="_blank" class="project-link" title="GitHub">↗</a>
+        </div>
+      </div>
+      <div class="project-status"><div class="status-dot concept"></div> Archive</div>
+      <h3>Technology Ideas Archive</h3>
+      <p>50 privately-documented technology concept projects spanning robotics, AI, nanotechnology, biomedical engineering, space travel, and conservation biology. Professionally documented for Zenodo/CERN academic archival with DOI.</p>
+      <div class="project-tech">
+        <span class="tag">Robotics</span>
+        <span class="tag">AI</span>
+        <span class="tag">Nanotechnology</span>
+        <span class="tag">Research</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- IDEAS BANNER -->
+  <div class="ideas-banner fade-up">
+    <h3>50 ideas. Documented and archived.</h3>
+    <p>I've professionally documented 50 technology concept projects — from arc-reactor-adjacent power systems to programmable matter barriers — stored on GitHub and planned for Zenodo (CERN's academic DOI repository).</p>
+    <a href="https://github.com/ArmanForouharfard/My-Technology-Ideas" target="_blank" class="btn btn-ghost">View Ideas Archive ↗</a>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-logo">arman.dev</div>
+  <div class="footer-copy">© 2026 Arman Forouharfard</div>
+  <div class="footer-social">
+    <a href="https://github.com/ArmanForouharfard" target="_blank">GH</a>
+    <a href="https://linkedin.com/in/arman-forouharfard-a3a360271" target="_blank">in</a>
+    <a href="mailto:arman.forouharfard@gmail.com">✉</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Filter logic
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const tags = card.dataset.tags || '';
+        if (filter === 'all' || tags.includes(filter)) {
+          card.removeAttribute('data-hidden');
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
