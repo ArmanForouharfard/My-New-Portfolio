@@ -13,7 +13,7 @@
 
 **Arman Forouharfard** is a Software Engineering student and game programming intern at Arsacia Company in Tehran, Iran. With 7+ years in the IT domain and a background spanning frontend development, game scripting, Unity/C#, and AI systems, he is working toward a transition into robotics engineering and graduate study abroad.
 
-- 🌐 Portfolio: [armanforouharfard.github.io/My-New-Portfolio-](https://armanforouharfard.github.io/My-New-Portfolio-)
+- 🌐 Portfolio: [armanforouharfard.github.io/My-New-Portfolio-](https://armanforouharfard.github.io/My-New-Portfolio/index.html)
 - 💼 LinkedIn: [linkedin.com/in/arman-forouharfard-a3a360271](https://linkedin.com/in/arman-forouharfard-a3a360271)
 - 🐙 GitHub: [github.com/ArmanForouharfard](https://github.com/ArmanForouharfard)
 - 📧 Email: arman.forouharfard@gmail.com
