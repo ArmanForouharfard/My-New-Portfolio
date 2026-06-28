@@ -89,7 +89,7 @@ cd My-New-Portfolio-
 ```
 
 Or visit the live site directly:
-**[armanforouharfard.github.io/My-New-Portfolio-](https://armanforouharfard.github.io/My-New-Portfolio-)**
+**[My-New-Portfolio](https://armanforouharfard.github.io/My-New-Portfolio/index.html)**
 
 ---
 
