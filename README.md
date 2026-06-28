@@ -3,7 +3,7 @@
 
 > A modern, cinematic multi-page portfolio built with pure HTML, CSS & JavaScript. No frameworks, no build tools — just clean, well-structured frontend code with a dark aesthetic and warm orange accents.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-f07a2a?style=for-the-badge&logo=github)](https://armanforouharfard.github.io/My-New-Portfolio/index.html)
+[![Live Demo]([https://img.shields.io/badge/Live%20Demo-Visit%20Site-f07a2a?style=for-the-badge&logo=githu](https://armanforouharfard.github.io/My-New-Portfolio/index.html)b)](https://armanforouharfard.github.io/My-New-Portfolio/index.html)
 [![GitHub](https://img.shields.io/badge/GitHub-ArmanForouharfard-181717?style=for-the-badge&logo=github)](https://github.com/ArmanForouharfard)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/arman-forouharfard-a3a360271)
 
@@ -13,7 +13,7 @@
 
 **Arman Forouharfard** is a Software Engineering student and game programming intern at Arsacia Company in Tehran, Iran. With 7+ years in the IT domain and a background spanning frontend development, game scripting, Unity/C#, and AI systems, he is working toward a transition into robotics engineering and graduate study abroad.
 
-- 🌐 Portfolio: [armanforouharfard.github.io/My-New-Portfolio-](https://armanforouharfard.github.io/My-New-Portfolio/index.html)
+- 🌐 Portfolio: [armanforouharfard.github.io/My-New-Portfolio]()
 - 💼 LinkedIn: [linkedin.com/in/arman-forouharfard-a3a360271](https://linkedin.com/in/arman-forouharfard-a3a360271)
 - 🐙 GitHub: [github.com/ArmanForouharfard](https://github.com/ArmanForouharfard)
 - 📧 Email: arman.forouharfard@gmail.com
