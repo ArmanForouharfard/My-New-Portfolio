@@ -101,6 +101,12 @@ The architecture, design system, component patterns, responsive layout, and anim
 
 ---
 
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
 <div align="center">
   <sub>Designed & built by Arman Forouharfard · Engineered in collaboration with Claude (Anthropic) · 2026</sub>
 </div>
