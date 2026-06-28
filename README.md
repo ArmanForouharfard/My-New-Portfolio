@@ -3,7 +3,7 @@
 
 > A modern, cinematic multi-page portfolio built with pure HTML, CSS & JavaScript. No frameworks, no build tools — just clean, well-structured frontend code with a dark aesthetic and warm orange accents.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-f07a2a?style=for-the-badge&logo=github)](https://armanforouharfard.github.io/My-New-Portfolio-)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-f07a2a?style=for-the-badge&logo=github)](https://armanforouharfard.github.io/My-New-Portfolio/index.html)
 [![GitHub](https://img.shields.io/badge/GitHub-ArmanForouharfard-181717?style=for-the-badge&logo=github)](https://github.com/ArmanForouharfard)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/arman-forouharfard-a3a360271)
 
